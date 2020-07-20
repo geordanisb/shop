@@ -1,0 +1,25 @@
+export const robots = [
+    {
+        id:1,
+        name:'Camila',
+        username:'a1',
+        email:'a@gmail.com'
+    },
+    {
+        id:2,
+        name:'Mirian',
+        username:'b1',
+        email:'b@gmail.com'
+    },
+    {
+        id:3,
+        name:'Gabriela',
+        username:'c1',
+        email:'c@gmail.com'
+    },{
+        id:4,
+        name:'Sisy',
+        username:'d1',
+        email:'d@gmail.com'
+    }
+];
