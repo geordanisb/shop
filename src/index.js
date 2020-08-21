@@ -3,12 +3,22 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 import App from './App';
-
+import {Provider} from 'react-redux';
+import {searchRobots,requestRobots} from './reducers';
+import {createStore,combineReducers,applyMiddleware} from 'redux';
 import * as serviceWorker from './serviceWorker';
+import thunkMiddleware from 'redux-thunk';
+import { BrowserRouter as Router } from 'react-router-dom';
+let rootReducer = combineReducers({searchRobots,requestRobots});
+const store = createStore(rootReducer,applyMiddleware(thunkMiddleware));
 
 ReactDOM.render(
   <React.StrictMode>
-    <App/>
+    <Provider store={store}>
+      <Router>
+      <App/>
+      </Router>      
+    </Provider>    
   </React.StrictMode>,
   document.getElementById('root')
 );
