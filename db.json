@@ -1,0 +1,38 @@
+{
+    "Department": [
+        {
+            "id": 1,
+            "name": "Clothes"
+        },
+        {
+            "id": 2,
+            "name": "Electronichs"
+        }
+    ],
+    "Categories": [
+        {
+            "id": 1,
+            "name": "Clothes 1",
+            "departament": 1
+        },
+        {
+            "id": 2,
+            "name": "Clothes 2",
+            "departament": 1
+        },
+        {
+            "id": 3,
+            "name": "Electronichs 1",
+            "departament": 2
+        }
+    ],
+    "Items": [
+        {
+            "id": 1,
+            "name": "Dress",
+            "cost": 50,
+            "departament": 1,
+            "category": 1
+        }
+    ]
+}
