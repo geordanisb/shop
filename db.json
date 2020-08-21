@@ -9,7 +9,7 @@
             "name": "Electronichs"
         }
     ],
-    "Categories": [
+    "Category": [
         {
             "id": 1,
             "name": "Clothes 1",
@@ -26,7 +26,7 @@
             "departament": 2
         }
     ],
-    "Items": [
+    "Item": [
         {
             "id": 1,
             "name": "Dress",
