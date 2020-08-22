@@ -45,7 +45,7 @@ const useStyles = makeStyles({
   },
 });
 
-const mapStateToProps = state => {debugger;
+const mapStateToProps = state => {
   return {
       // searchField:state.searchRobots.searchField,
       items:state.ItemReducer.items,
@@ -63,7 +63,7 @@ const mapDispatchToProps = (dispatch) =>{
   }
 }
 
-const ListWindow = ({items,isPending,error,onItemsChange}) => {
+const ItemListWindow = ({items,isPending,error,onItemsChange}) => {
   const classes = useStyles();
   let {fields} = Item.__description__;
   // let [records,setRecords] = useState([]);
@@ -77,7 +77,6 @@ const ListWindow = ({items,isPending,error,onItemsChange}) => {
 
   let history = useHistory();
   function openWindowHandler(row){
-        console.log(row);
         history.push(`/ItemWindow/${row.id}`);
       }
   
@@ -143,4 +142,4 @@ const ListWindow = ({items,isPending,error,onItemsChange}) => {
   </TableContainer>);
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(ListWindow);
+export default connect(mapStateToProps,mapDispatchToProps)(ItemListWindow);

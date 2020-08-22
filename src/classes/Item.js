@@ -21,7 +21,7 @@ Item.__description__ = {
     fields:{
         ...Record.__description__.fields,
         name:{type:"string",label:"Name"},
-        cost:{type:"double"},
+        cost:{type:"value"},
         departament:{type:"string"},
         category:{type:"string"}
     }

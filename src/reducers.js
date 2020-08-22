@@ -3,7 +3,12 @@ import {
     REQUESTS_ITEM_PENDING,
 REQUESTS_ITEM_SUCCESSS,
 REQUESTS_ITEM_FAILED,
-GET_ITEM_BY_ID,
+EDIT_ITEM_SUCCESSS,
+EDIT_ITEM_PENDING,
+EDIT_ITEM_FAILED,
+DELETE_ITEM_SUCCESSS,
+DELETE_ITEM_PENDING,
+DELETE_ITEM_FAILED,
 
 REQUESTS_DEPARTMENT_PENDING,
 REQUESTS_DEPARTMENT_SUCCESSS,
@@ -42,6 +47,16 @@ export const ItemReducer = (state = initialStateRequestItems, action={}) => {
             return Object.assign({},state,{isPending:false,items:action.payload});
         case REQUESTS_ITEM_FAILED:
             return Object.assign({},state,{isPending:false,error:action.payload});
+        
+        case EDIT_ITEM_PENDING:
+                return Object.assign({},state,{isPending:true});
+        case EDIT_ITEM_FAILED:
+                return Object.assign({},state,{isPending:false,error:action.payload});        
+        case EDIT_ITEM_SUCCESSS:
+            let index = state.findIndex(i=>i.id === action.id);
+            let item = {...state.items[index],...action.payload};
+            let items = state.items.splice(index,0,item)
+            return Object.assign({},state,{items})
         default: return state;
     }
 }
