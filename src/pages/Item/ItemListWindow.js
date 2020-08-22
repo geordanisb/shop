@@ -1,24 +1,3 @@
-// import React from 'react';
-// import {
-//   Typography,
-// } from '@material-ui/core';
-// import Item from '../../classes/Item';
-// import ListWindow from '../../components/ListWindow';
-// import {useHistory} from 'react-router-dom';
-// export default () => {
-//   let history = useHistory();
-
-//   function openWindowHandler(row){
-//     console.log(row);
-//     history.push(`/ItemWindow/${row.id}`);
-//   }
-//   return (<>
-//     <Typography variant="h4">Items</Typography>
-//     <ListWindow RecordClass={Item} openWindowHandler={openWindowHandler}/>
-//   </>
-//   )
-// };
-
 import React,{useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import {
@@ -47,18 +26,13 @@ const useStyles = makeStyles({
 
 const mapStateToProps = state => {
   return {
-      // searchField:state.searchRobots.searchField,
-      items:state.ItemReducer.items,
-      isPending:state.ItemReducer.isPending,
-      error:state.ItemReducer.error,
+      items:state.itemReducer.data,
+      isPending:state.itemReducer.isPending,
+      error:state.itemReducer.error,
   }
 }
 const mapDispatchToProps = (dispatch) =>{
   return {
-      // onSearchChange: (event)=> {
-      //     console.log(this)
-      //     return dispatch(setSearchText(event.target.value))
-      // },
       onItemsChange:()=>dispatch(requestItems())
   }
 }
@@ -66,8 +40,7 @@ const mapDispatchToProps = (dispatch) =>{
 const ItemListWindow = ({items,isPending,error,onItemsChange}) => {
   const classes = useStyles();
   let {fields} = Item.__description__;
-  // let [records,setRecords] = useState([]);
-
+  
   useEffect(function(){
     async function fetchItems(){
       onItemsChange()  
@@ -79,24 +52,6 @@ const ItemListWindow = ({items,isPending,error,onItemsChange}) => {
   function openWindowHandler(row){
         history.push(`/ItemWindow/${row.id}`);
       }
-  
-  // useEffect(function (){
-  //   let url = `http://my-json-server.typicode.com/geordanisb/shop/Item`;
-  //   async function getData(){
-  //     const CancelToken = axios.CancelToken;
-  //     const source = CancelToken.source();
-      
-  //     let {data} = await axios.get(url,{
-  //       cancelToken: source.token
-  //     });
-  //     setTimeout(() => {
-  //       source.cancel('Server does not respond');
-  //     }, 3000);
-  //     setRecords(data);
-  //   }
-  //   getData();
-  // },[]);
-
   
 
   function headerCells(){

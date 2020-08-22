@@ -4,12 +4,12 @@ import './index.css';
 
 import App from './App';
 import {Provider} from 'react-redux';
-import {ItemReducer,DepartmentReducer,CategoryReducer} from './reducers';
+import {itemReducer,departmentReducer,categoryReducer} from './reducers';
 import {createStore,combineReducers,applyMiddleware} from 'redux';
 import * as serviceWorker from './serviceWorker';
 import thunkMiddleware from 'redux-thunk';
 // import { BrowserRouter as Router } from 'react-router-dom';
-let rootReducer = combineReducers({ItemReducer,DepartmentReducer,CategoryReducer});
+let rootReducer = combineReducers({itemReducer,departmentReducer,categoryReducer});
 const store = createStore(rootReducer,applyMiddleware(thunkMiddleware));
 
 ReactDOM.render(
