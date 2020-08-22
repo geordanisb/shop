@@ -1,29 +1,23 @@
 import Record from './Record';
 
-class Item extends Record {
+class Category extends Record {
     constructor(){
         super();
         this.name = '';
-        this.cost = '';
         this.departament = '';
-        this.category = '';
     }
     fromObject(obj){
         super.fromObject(obj);
         this.name = obj.name;
-        this.cost = obj.cost;
         this.departament = obj.departament;
-        this.category = obj.category;
     }
 }
-Item.__description__ = {
-    title:"Item",
+Category.__description__ = {
+    title:"Category",
     fields:{
         ...Record.__description__.fields,
         name:{type:"string",label:"Name"},
-        cost:{type:"double"},
-        departament:{type:"string"},
-        category:{type:"string"}
+        departament:{type:"string",label:"Departament"}
     }
 }
-export default Item;
+export default Category;

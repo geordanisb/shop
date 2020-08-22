@@ -6,7 +6,6 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import Link from '@material-ui/core/Link';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -33,9 +32,9 @@ export default function ButtonAppBar() {
           </IconButton>
           <Typography variant="h6" className={classes.title}>
             <a href="/" className={classes.menuButton}>Home</a>
-            <a href="/Items" className={classes.menuButton}>Items</a>
-            <a href="/Departments" className={classes.menuButton}>Departments</a>
-            <a href="/Categories" className={classes.menuButton}>Categories</a>
+            <a href="/ItemListWindow" className={classes.menuButton}>Items</a>
+            <a href="/DepartmentListWindow" className={classes.menuButton}>Departments</a>
+            <a href="/CategoryListWindow" className={classes.menuButton}>Categories</a>
             
           </Typography>
           <Button color="inherit">Login</Button>

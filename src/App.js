@@ -1,11 +1,10 @@
-import React, {Fragment,BrowserRouter} from 'react';
-import {connect} from 'react-redux';
-import {Route} from 'react-router-dom';
+import React, {Fragment} from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 // import ErrorBoundry from './ErrorBoundry';
 // import CardList from './CardList'
 // import SearchBox from './SearchBox'
 // import Scroll from './Scroll'
-// import {setSearchText,requestRobots} from './actions';
+
 
 import {
     CssBaseline,
@@ -14,9 +13,12 @@ import {
   
   import AppHeader from './components/AppHeader';
   import Home from './pages/Home';
-  import Items from './pages/Items';
-  import Departments from './pages/Departments';
-  import Categories from './pages/Categories';
+  import ItemListWindow from './pages/Item/ItemListWindow';
+  import ItemWindow from './pages/Item/ItemWindow';
+  import DepartmentListWindow from './pages/Department/DepartmentListWindow';
+  import DepartmentWindow from './pages/Department/DepartmentWindow';
+  import CategoryListWindow from './pages/Category/CategoryListWindow';
+  import CategoryWindow from './pages/Category/CategoryWindow';
     
   const styles = theme => ({
     main: {
@@ -27,23 +29,27 @@ import {
     },
   });
 
-  const App = ({ classes }) => (
+
+
+  const App = ({ classes }) => {
+    return (
     <Fragment>
       <CssBaseline />
       <AppHeader />
       <main className={classes.main}>
-          
-        <Route exact path="/" component={Home} />
-        <Route path="/Items" component={Items} />
-        <Route path="/Departments" component={Departments} />
-        <Route path="/Categories" component={Categories} />
-      {/* <SecureRoute path="/posts" component={PostsManager} /> */}
-       
-          
-       
+          <Router>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/ItemListWindow" component={ItemListWindow} />
+            <Route path="/ItemWindow/:id" component={ItemWindow} />
+            <Route exact path="/DepartmentListWindow" component={DepartmentListWindow} />
+            <Route path="/DepartmentWindow/:id" component={DepartmentWindow} />
+            <Route exact path="/CategoryListWindow" component={CategoryListWindow} />
+            <Route path="/CategoryWindow/:id" component={CategoryWindow} />
+          </Router>
      </main>
     </Fragment>
-  );
+  )
+};
   export default withStyles(styles)(App);
 // const mapStateToProps = state => {
 //     return {
